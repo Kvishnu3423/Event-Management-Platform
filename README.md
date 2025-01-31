@@ -1,4 +1,8 @@
-# Event-Management-Platform
+# Event-Management-Platform- 
+
+## Project Overview:
+The goal of this project is to develop an Event Management Platform for a university where students, faculty, and staff can create, manage, and attend events. The system will allow users to register events, sign up for participation, and track event details like date, time, location, and attendees. Additionally, administrators will have the ability to manage events, validate registrations, and generate reports.
+
 
 Break Down
 
