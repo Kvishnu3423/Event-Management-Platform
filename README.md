@@ -8,7 +8,7 @@ Break Down
 
 # Planning and Analysis:
 
-Tasks:- 
+### Tasks - 
 
 ## Project setup- {
 ### Backend
