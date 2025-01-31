@@ -2,12 +2,12 @@
 
 Break Down
 
-Planning and Analysis:
+# Planning and Analysis:
 
 Tasks:- 
 
-Project setup- {
-Backend
+## Project setup- {
+### Backend
 
 1- Install - React, Node, Mongo DB 
 
@@ -23,7 +23,7 @@ Backend
 
 7- Setup new HTTP Request for validation
 
-Frontend-
+### Frontend-
 
 8- create vite@react
 
