@@ -21,9 +21,6 @@ const Navbar = () => {
           <Link to="contact" spy={true} smooth={true} duration={500}>
             CONTACT
           </Link>
-          <Link to="Login Signup" spy={true} smooth={true} duration={500}>
-            Login / Sign up
-          </Link>
         </div>
       </div>
       <div className="hamburger" onClick={() => setShow(!show)}>

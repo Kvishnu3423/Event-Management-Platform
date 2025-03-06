@@ -21,16 +21,16 @@ const LoginSignup = () => {
     e.preventDefault();
     try {
       if (isLogin) {
-        // Login request
-        const res = await axios.post("http://localhost:4000/login", { email, password });
+        // 🔹 Updated Login API URL
+        const res = await axios.post("http://localhost:4000/api/v1/auth/login", { email, password });
         localStorage.setItem("token", res.data.token);
         alert("Login successful!");
       } else {
-        // Signup request
-        await axios.post("http://localhost:4000/signup", { name, email, password });
+        // 🔹 Updated Signup API URL
+        await axios.post("http://localhost:4000/api/v1/auth/signup", { name, email, password });
         alert("Signup successful!");
       }
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       alert(error.response?.data?.message || "Something went wrong");
     }

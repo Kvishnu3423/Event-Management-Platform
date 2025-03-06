@@ -1,0 +1,33 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* ✅ Left-align everything */
+    padding: 10px;
+  }
+  
+  .logout-button {
+    background: linear-gradient(135deg, #d2b48c, #c19a6b); /* ✅ Light Chocolate Gradient */
+    color: white;
+    font-size: 18px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(193, 154, 107, 0.3); /* ✅ Subtle shadow */
+    margin-bottom: 20px; /* ✅ Spacing from heading */
+  }
+  
+  .logout-button:hover {
+    background: linear-gradient(135deg, #c19a6b, #a57b5b); /* ✅ Darker Chocolate on Hover */
+    box-shadow: 0px 6px 14px rgba(193, 154, 107, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .logout-icon {
+    font-size: 22px;
+  }
+  
