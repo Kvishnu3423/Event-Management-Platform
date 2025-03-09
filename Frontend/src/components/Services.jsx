@@ -1,40 +1,44 @@
+import { useNavigate } from "react-router-dom";
+
 const Services = () => {
+  const navigate = useNavigate(); // ✅ React Router navigation
+
   const services = [
     {
       id: 1,
       url: "/Sankranthi.jpg",
       title: "Sankranthi Event",
-      link: "https://en.wikipedia.org/wiki/Makar_Sankranti",
+      path: "/book-ticket/sankranthi", // ✅ Booking Page Route
     },
     {
       id: 2,
       url: "/Ugadhi.jpg",
       title: "Ugadhi Event",
-      link: "https://en.wikipedia.org/wiki/Ugadi",
+      path: "/book-ticket/ugadhi",
     },
     {
       id: 3,
       url: "/Holi.jpg",
       title: "Holi Event",
-      link: "https://en.wikipedia.org/wiki/Holi",
+      path: "/book-ticket/holi",
     },
     {
       id: 4,
       url: "/Ganesh Chathurthi.jpg",
       title: "Ganesh Chathurthi Event",
-      link: "https://en.wikipedia.org/wiki/Ganesh_Chaturthi",
+      path: "/book-ticket/ganesh-chaturthi",
     },
     {
       id: 5,
       url: "/Dhussera.jpg",
       title: "Dhussera Event",
-      link: "https://en.wikipedia.org/wiki/Dussehra",
+      path: "/book-ticket/dussehra",
     },
     {
       id: 6,
       url: "/Diwali.jpg",
       title: "Diwali Event",
-      link: "https://en.wikipedia.org/wiki/Diwali",
+      path: "/book-ticket/diwali",
     },
   ];
 
@@ -48,8 +52,8 @@ const Services = () => {
               <div 
                 className="item" 
                 key={element.id}
-                onClick={() => window.open(element.link, "_blank")} // ✅ Open Wikipedia in new tab
-                style={{ cursor: "pointer" }} // ✅ Make the cursor indicate it's clickable
+                onClick={() => navigate(element.path)} // ✅ Navigate to Booking Page
+                style={{ cursor: "pointer" }}
               >
                 <h3>{element.title}</h3>
                 <img src={element.url} alt={element.title} />

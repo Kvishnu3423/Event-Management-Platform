@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate,} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LoginSignup from "./components/LoginSignup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BookTicket from "./components/BookTicket"; 
 import Dashboard from "./components/Dashboard";
 import { useState, useEffect } from "react";
 
@@ -55,6 +56,8 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
+        {/* ✅ Ticket Booking Route */}
+        <Route path="/book-ticket/:eventName" element={<BookTicket />} /> {/* ✅ New Booking Page */}
       </Routes>
       <Footer />
       <Toaster />
