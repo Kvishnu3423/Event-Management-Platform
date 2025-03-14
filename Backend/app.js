@@ -6,6 +6,8 @@ import authRouter from "./router/authRouter.js"; // ✅ Import Auth Routes
 import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import ticketRouter from "./router/ticketRouter.js";
+
 
 const app = express();
 
@@ -24,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 // API Routes
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/auth", authRouter);  // ✅ Now authRouter is defined!
+app.use("/api/v1/tickets", ticketRouter);
 
 // Connect to MongoDB Atlas
 dbConnection();
