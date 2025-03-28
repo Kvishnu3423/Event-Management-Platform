@@ -416,12 +416,13 @@ footer .banner .tag div button {
   font-weight: 300;
   color: #a2783a;
   bottom: -200%;
-  transition: 0.3s;
+  transition: 1.5s;
 }
 .services .banner .item:hover h3 {
-  bottom: 0;
-  transition: 0.3s;
+  bottom: 0.0;
+  transform: scale(1.05); /* Zoom effect on hover */
 }
+
 @media (max-width: 1280px) {
   .services .banner {
     display: grid;
@@ -550,4 +551,29 @@ footer .banner .tag div button {
 
 .modal-content button:hover {
   opacity: 0.9;
+}
+
+/* Style for the button container - does not affect images */
+.button-container {
+  text-align: center; /* Center the button */
+  margin-top: 10px;
+}
+
+/* Details button styles */
+.details-button {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.details-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }

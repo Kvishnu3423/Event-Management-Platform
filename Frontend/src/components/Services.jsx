@@ -7,39 +7,67 @@ const Services = () => {
     {
       id: 1,
       url: "/Sankranthi.jpg",
-      title: "Sankranthi Event",
-      path: "/book-ticket/sankranthi", // ✅ Booking Page Route
+      title: "Book tickets for this Event on Jan/13/2025",
+      path: "/book-ticket/sankranthi",
+      link: "https://en.wikipedia.org/wiki/Makar_Sankranti",
     },
     {
       id: 2,
       url: "/Ugadhi.jpg",
-      title: "Ugadhi Event",
+      title: "Book tickets for this Event on Mar/30/2025",
       path: "/book-ticket/ugadhi",
+      link: "https://en.wikipedia.org/wiki/Ugadi",
     },
     {
       id: 3,
       url: "/Holi.jpg",
-      title: "Holi Event",
+      title: "Book tickets for this Event on Mar/13/2025",
       path: "/book-ticket/holi",
+      link: "https://en.wikipedia.org/wiki/Holi",
     },
     {
       id: 4,
       url: "/Ganesh Chathurthi.jpg",
-      title: "Ganesh Chathurthi Event",
+      title: "Book tickets for this Event on Aug/26/2025",
       path: "/book-ticket/ganesh-chaturthi",
+      link: "https://en.wikipedia.org/wiki/Ganesh_Chaturthi",
     },
     {
       id: 5,
       url: "/Dhussera.jpg",
-      title: "Dhussera Event",
+      title: "Book tickets for this Event on Oct/02/2025",
       path: "/book-ticket/dussehra",
+      link: "https://en.wikipedia.org/wiki/Dussehra",
     },
     {
       id: 6,
       url: "/Diwali.jpg",
-      title: "Diwali Event",
+      title: "Book tickets for this Event on Oct/20/2025",
       path: "/book-ticket/diwali",
+      link: "https://en.wikipedia.org/wiki/Diwali",
     },
+    {
+      id: 7,
+      url: "/Bonalu.jpg",
+      title: "Book tickets for this Event on Sep/20/2025",
+      path: "/book-ticket/bonalu",
+      link: "https://en.wikipedia.org/wiki/Bonalu",
+    },
+    {
+      id: 8,
+      url: "/Krishna Janmashtami.jpg",
+      title: "Book tickets for this Event on Oct/20/2025",
+      path: "/book-ticket/diwali",
+      link: "https://en.wikipedia.org/wiki/Krishna_Janmashtami",
+    },
+    {
+      id: 9,
+      url: "/Srirama Navami.jpg",
+      title: "Book tickets for this Event on Oct/20/2025",
+      path: "/book-ticket/diwali",
+      link: "https://en.wikipedia.org/wiki/Srirama_navami",
+    },
+
   ];
 
   return (
@@ -49,14 +77,28 @@ const Services = () => {
         <div className="banner">
           {services.map((element) => {
             return (
-              <div 
-                className="item" 
-                key={element.id}
-                onClick={() => navigate(element.path)} // ✅ Navigate to Booking Page
-                style={{ cursor: "pointer" }}
-              >
-                <h3>{element.title}</h3>
-                <img src={element.url} alt={element.title} />
+              <div className="item" key={element.id} style={{ cursor: "pointer" }}>
+                <img
+                  src={element.url}
+                  alt={element.title}
+                  onClick={() => element.link ? window.open(element.link, "_blank") : navigate(element.path)}
+                  style={{ cursor: "pointer" }}
+                />
+                <h3>
+                  <a href={element.path} style={{ textDecoration: "none", color: "inherit" }}>
+                    {element.title}
+                  </a>
+                </h3>
+
+                {/* Details Button Below Each Image */}
+                <div className="button-container">
+                  <button
+                    className="details-button"
+                    onClick={() => window.open(element.link, "_blank")}
+                  >
+                    Details
+                  </button>
+                </div>
               </div>
             );
           })}

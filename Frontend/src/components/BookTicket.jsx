@@ -115,12 +115,12 @@ const BookTicket = () => {
           </div>
 
           <div className="form-group">
-            <label>Gender:</label>
+            <label>Role:</label>
             <select value={gender} onChange={(e) => setGender(e.target.value)} required>
-              <option value="">Select Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              <option value="">Select Role</option>
+              <option value="Male">Professor</option>
+              <option value="Female">Student</option>
+              <option value="Other">Staff</option>
             </select>
           </div>
 
