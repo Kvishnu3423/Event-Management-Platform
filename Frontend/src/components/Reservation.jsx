@@ -16,7 +16,6 @@ const Reservation = ({ isOpen, onClose }) => {
 
           <label>Event:</label>
           <select>
-          <option value="Select Event">Select Event</option>
             <option value="Sankranthi">Sankranthi</option>
             <option value="Ugadhi">Ugadhi</option>
             <option value="Holi">Holi</option>
@@ -25,15 +24,15 @@ const Reservation = ({ isOpen, onClose }) => {
             <option value="Diwali">Diwali</option>
           </select>
 
-          <label>Room:</label>
+          <label>Rooms:</label>
           <select>
-          <option value="Select room">Select Room</option>
+            <option value="select room">Select a Room</option>
             <option value="SSM100">SSM100</option>
             <option value="SSM102">SSM102</option>
             <option value="SSM103">SSM103</option>
-            <option value="SSM104">SSM104</option>
             <option value="SSM106">SSM106</option>
             <option value="SSM110">SSM110</option>
+            <option value="SSM112">SSM112</option>
           </select>
 
           <button type="submit">Submit</button>

@@ -76,6 +76,14 @@ const BookTicket = () => {
       console.log("Booking Response:", data);
       if (data.success) {
         setTicket(data.ticket);
+        setAvailableSeats(availableSeats - numTickets);  // Update available seats after booking
+
+        // Store the updated event data in localStorage (For admin to see)
+        localStorage.setItem(eventName, JSON.stringify({
+          availableSeats: availableSeats - numTickets,
+          totalSeats: availableSeats
+        }));
+
         fetchAvailableSeats(); // ✅ Refetch available seats after booking
       } else {
         setError("Failed to book ticket: " + data.message);
@@ -101,32 +109,58 @@ const BookTicket = () => {
 
           <div className="form-group">
             <label>Name:</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name" required />
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label>Email:</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" required />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label>Age:</label>
-            <input type="number" value={age} onChange={(e) => setAge(e.target.value)} min="1" max="120" required />
+            <input
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              min="1"
+              max="120"
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label>Role:</label>
+            <label>Category:</label>
             <select value={gender} onChange={(e) => setGender(e.target.value)} required>
-              <option value="">Select Role</option>
+              <option value="">Select Category</option>
               <option value="Male">Professor</option>
               <option value="Female">Student</option>
-              <option value="Other">Staff</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
           <div className="form-group">
             <label>Number of Tickets:</label>
-            <input type="number" min="1" max={availableSeats} value={numTickets} onChange={(e) => setNumTickets(e.target.value)} required />
+            <input
+              type="number"
+              min="1"
+              max={availableSeats}
+              value={numTickets}
+              onChange={(e) => setNumTickets(e.target.value)}
+              required
+            />
           </div>
 
           <div className="form-group">
@@ -134,7 +168,11 @@ const BookTicket = () => {
             <Calendar onChange={setSelectedDate} value={selectedDate} />
           </div>
 
-          <button type="submit" className="booking-button" disabled={loading || availableSeats === 0 || numTickets > availableSeats}>
+          <button
+            type="submit"
+            className="booking-button"
+            disabled={loading || availableSeats === 0 || numTickets > availableSeats}
+          >
             {loading ? "Booking..." : "Book Now"}
           </button>
         </form>

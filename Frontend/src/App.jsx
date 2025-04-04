@@ -1,5 +1,6 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import "./components/Admin.css";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -11,6 +12,7 @@ import LoginSignup from "./components/LoginSignup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BookTicket from "./components/BookTicket"; 
 import Dashboard from "./components/Dashboard";
+import AdminDashboard from "./components/AdminDashBoard";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -31,6 +33,7 @@ const App = () => {
       <Navbar />
       {token && (
         <div style={{ textAlign: "right", padding: "10px" }}>
+          <button onClick = {handleLogout} > Logout </button>
         </div>
       )}
       <Routes>
@@ -58,6 +61,8 @@ const App = () => {
         />
         {/* ✅ Ticket Booking Route */}
         <Route path="/book-ticket/:eventName" element={<BookTicket />} /> {/* ✅ New Booking Page */}
+        {/* ✅ Admin Portal Route */}
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
       <Footer />
       <Toaster />
