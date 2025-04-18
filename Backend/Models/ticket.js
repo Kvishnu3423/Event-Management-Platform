@@ -11,5 +11,5 @@ const ticketSchema = new mongoose.Schema({
     // ❌ Removed `room` requirement
 });
 
-const Ticket = mongoose.model("Tickets", ticketSchema);
+const Ticket = mongoose.model("Ticket", ticketSchema);
 export default Ticket;

@@ -41,46 +41,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Admin Signup
-router.post("/admin/signup", async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    let admin = await User.findOne({ email });
-    if (admin) return res.status(400).json({ message: "Admin already exists" });
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    admin = new User({ name, email, password: hashedPassword, isAdmin: true });
-    await admin.save();
-
-    res.status(201).json({ message: "Admin registered successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Server Error" });
-  }
-});
-
-// Admin Login
-router.post("/admin/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const admin = await User.findOne({ email });
-    if (!admin || !admin.isAdmin) {
-      return res.status(401).json({ message: "Admin not found or unauthorized" });
-    }
-
-    const isMatch = await bcrypt.compare(password, admin.password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
-
-    const token = jwt.sign({ id: admin._id, isAdmin: true }, "your_secret_key", {
-      expiresIn: "1h",
-    });
-
-    res.json({ token });
-  } catch (error) {
-    res.status(500).json({ message: "Server Error" });
-  }
-});
-
-
 export default router;
