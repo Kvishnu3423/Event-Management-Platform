@@ -21,7 +21,7 @@ const BookTicket = () => {
   const fetchAvailableSeats = () => {
     if (selectedDate) {
       const formattedDate = selectedDate.toISOString().split("T")[0];
-      fetch(`/api/v1/tickets/available-seats?event=${eventName}&date=${formattedDate}`)
+      fetch(`http://localhost:4000/api/v1/tickets/available-seats?event=${eventName}&date=${formattedDate}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("Available Seats API Response:", data);
@@ -183,7 +183,7 @@ const BookTicket = () => {
           <p><strong>Event:</strong> {ticket.event}</p>
           <p><strong>Email:</strong> {ticket.email}</p>
           <p><strong>Age:</strong> {ticket.age}</p>
-          <p><strong>Gender:</strong> {ticket.gender}</p>
+          <p><strong>Category:</strong> {ticket.category}</p>
           <p><strong>Tickets:</strong> {ticket.numTickets}</p>
           <p><strong>Date:</strong> {new Date(ticket.reservationDate).toLocaleString()}</p>
           <button onClick={() => { window.print(); fetchAvailableSeats(); }} className="print-button">🖨 Print Ticket</button>
