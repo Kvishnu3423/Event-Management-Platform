@@ -7,7 +7,6 @@ import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import ticketRouter from "./router/ticketRouter.js";
-import adminRoutes from "./router/adminRoutes.js"; // ✅ Import Admin Routes
 
 
 const app = express();
@@ -26,7 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // API Routes
 app.use("/api/v1/message", messageRouter);
-app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/auth", authRouter);  // ✅ Now authRouter is defined!
 app.use("/api/v1/tickets", ticketRouter);
 

@@ -1,102 +1,56 @@
-# 🎉 Event Management Platform
+# Event-Management-Platform- 
 
-A full-stack web application designed to help universities manage events for students, faculty, and staff. This platform allows users to create, manage, and attend events with ease, while administrators can validate registrations and generate insightful reports.
+## Project Overview:
+The goal of this project is to develop an Event Management Platform for a university where students, faculty, and staff can create, manage, and attend events. The system will allow users to register events, sign up for participation, and track event details like date, time, location, and attendees. Additionally, administrators will have the ability to manage events, validate registrations, and generate reports.
 
----
 
-## 🚀 Features
+Break Down
 
-- User authentication and authorization
-- Event creation and registration
-- Event calendar with date/time/location info
-- Admin panel for validation and reporting
-- Responsive UI built with React and Vite
-- Backend powered by Node.js and MongoDB
+# Planning and Analysis:
 
----
+### Tasks - 
 
-## 🧱 Tech Stack
+## Project setup- {
+### Backend
 
-**Frontend**  
-- React (via Vite)  
-- Tailwind CSS (if used)  
+1- Install - React, Node, Mongo DB 
 
-**Backend**  
-- Node.js  
-- Express.js  
-- MongoDB (via Mongoose)  
-- RESTful API  
+2- Install Dependencies for the project - node.js, express, mongoose, cors, dotenv, validator
 
-**Utilities**  
-- dotenv  
-- cors  
-- validator  
+3- Update package.json file in backend 
 
----
+4- Create server.js
 
-## Getting Started
+5- Create app.js
 
-### Prerequisites
+6- Create authentication using mangoose 
 
-Make sure you have the following installed:
-- Node.js
-- npm
-- MongoDB
+7- Setup new HTTP Request for validation
 
-### Backend Setup
+### Frontend-
 
-```bash
-cd Event-Management-Platform/backend
-npm install
-npm run dev
-```
+8- create vite@react
 
-### Frontend Setup
+9- create Components about, footer, contact, navbar, services
 
-```bash
-cd Event-Management-Platform/frontend
-npm install
-npm run dev
-```
+10- create app.jsx for interface
 
----
+11- app.css, main.jsx
 
-## 🗃️ Folder Structure
+12- create the required services providing in event platform
 
-```
-Event-Management-Platform/
-├── backend/
-│   ├── server.js
-│   ├── app.js
-│   └── routes/, models/, controllers/
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-├── .env
-├── README.md
-```
+13- Setup footer
 
----
+14- Setup Contact, about us fields
 
-## 🛡️ Security & Validation
+15- mapping
 
-- Input validation using `validator`
-- Secure password handling (e.g., bcrypt)
-- Authentication using JWT (assumed)
+16- Linking the HTTP url with frontend
 
----
+17- Update any new features
 
-## 📈 Future Improvements
+18- run and check the portal
 
-- Email notifications
-- Event image uploads
-- Integration with campus calendar APIs
-- QR code check-ins for events
+19- Inspect the Website and check for any errors
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+20- Fix it and ready to lauch

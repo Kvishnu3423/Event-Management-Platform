@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-// Define Admin Schema
+// Define User Schema
 const AdminSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
 
-// Hash password before saving admin
-AdminSchema.pre("save", async function (next) {
+// Hash password before saving user
+UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
-// ✅ Prevent model overwrite in dev environments
-const Admin = mongoose.models.Admin || mongoose.model("Admin", AdminSchema);
+// ✅ Fix: Prevent model overwrite
+const Admin = mongoose.models.User || mongoose.model("Admin", UserSchema);
 
 export default Admin;

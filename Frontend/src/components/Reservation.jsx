@@ -16,6 +16,7 @@ const Reservation = ({ isOpen, onClose }) => {
 
           <label>Event:</label>
           <select>
+            <option value="Select Event">Select an Event</option>
             <option value="Sankranthi">Sankranthi</option>
             <option value="Ugadhi">Ugadhi</option>
             <option value="Holi">Holi</option>

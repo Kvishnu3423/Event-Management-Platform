@@ -13,19 +13,22 @@ const AdminDashboard = () => {
       .then((res) => res.json())
       .then((data) => {
         const updatedEvents = data.map(event => {
-          event.seatsFilled = event.seatsFilled || 0;
+          const eventData = JSON.parse(localStorage.getItem(event.name));
+          if (eventData) {
+            event.seatsFilled = event.totalSeats - eventData.availableSeats;
+          }
           return event;
         });
         setEvents(updatedEvents);
       })
       .catch((err) => console.error("Error fetching events:", err));
 
-    fetch("/api/admin/reservations")
+    fetch("/api/reservations")
       .then((res) => res.json())
       .then((data) => setReservations(data))
       .catch((err) => console.error("Error fetching reservations:", err));
 
-    fetch("/api/admin/rooms")
+    fetch("/api/rooms")
       .then((res) => res.json())
       .then((data) => setRooms(data))
       .catch((err) => console.error("Error fetching rooms:", err));
@@ -33,14 +36,8 @@ const AdminDashboard = () => {
 
   const toggleRoomAvailability = async (roomId, currentStatus) => {
     try {
-      await axios.put(`/api/admin/rooms/update/${roomId}`, {
-        isAvailable: !currentStatus,
-      });
-      setRooms((prev) =>
-        prev.map((room) =>
-          room._id === roomId ? { ...room, isAvailable: !currentStatus } : room
-        )
-      );
+      await axios.put(`/api/rooms/update/${roomId}`, { isAvailable: !currentStatus });
+      setRooms(rooms.map(room => room._id === roomId ? { ...room, isAvailable: !currentStatus } : room));
     } catch (err) {
       console.error("Error updating room status:", err);
     }
@@ -64,7 +61,7 @@ const AdminDashboard = () => {
 
       {view === "events" && (
         <table>
-          <thead>
+          <thead> 
             <tr>
               <th>Event Name</th>
               <th>Total Seats</th>
